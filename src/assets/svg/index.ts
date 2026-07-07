@@ -1,0 +1,8 @@
+export { default as checkboxIcon } from './ic-checkbox.svg'
+export { default as arrowLeftIcon } from './ic-arrow-left.svg'
+export { default as emailIcon } from './ic-email.svg'
+export { default as githubIcon } from './ic-github.svg'
+export { default as googleIcon } from './ic-google.svg'
+export { default as logoIcon } from './ic-logo.svg'
+export { default as lockIcon } from './ic-lock.svg'
+export { default as successIcon } from './ic-success-status.svg'
