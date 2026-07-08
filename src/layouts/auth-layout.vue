@@ -14,11 +14,11 @@ const termConditions = [
     <AuthNav />
 
     <section on class="xs:py-4 flex w-full justify-center sm:px-5 sm:py-8 lg:px-31">
-      <div class="grid max-w-4xl rounded-2xl shadow-md sm:grid-cols-10">
+      <div class="grid max-w-4xl rounded-2xl sm:grid-cols-10">
         <div
-          class="xs:hidden col-span-4 flex min-h-173.75 flex-col justify-between rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(135deg,#6C63FF_0%,#4F46E5_40%,#7C6AF7_100%)] p-10 sm:grid"
+          class="xs:hidden col-span-4 flex min-h-173.75 flex-col justify-stretch rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(135deg,#6C63FF_0%,#4F46E5_40%,#7C6AF7_100%)] p-10 sm:grid"
         >
-          <div class="flex items-center gap-3">
+          <div class="flex items-start gap-3">
             <img :src="logoIcon" alt="logo" />
             <p class="text-lg/7 font-semibold tracking-[-0.45px] text-white">Northwind</p>
           </div>
@@ -29,14 +29,14 @@ const termConditions = [
             </div>
           </div>
 
-          <div class="text-white">
+          <div class="flex flex-col items-center justify-center text-white">
             <h1 class="text-3xl/[37.5px] font-bold">One account for everything your team ships.</h1>
             <p class="text-sm/[22.75px] font-normal opacity-70">
               Secure sign-in, instant onboarding, and a verified inbox - all in a few clicks.
             </p>
           </div>
 
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col justify-end gap-3">
             <div v-for="(term, item) in termConditions" :key="item">
               <p class="flex gap-2 text-sm font-normal text-white opacity-80">
                 <img :src="checkboxIcon" alt="" />
