@@ -1,5 +1,5 @@
 import { paths } from '@/constants'
-import { ForgotPasswordView, LoginView, RegisterView } from '@/views'
+import { ForgotPasswordView, LoginView, RegisterView, ResetPasswordView } from '@/views'
 import type { RouteRecordRaw } from 'vue-router'
 
 export const routes: RouteRecordRaw[] = [
@@ -14,5 +14,9 @@ export const routes: RouteRecordRaw[] = [
   {
     path: paths.forgot_password,
     component: ForgotPasswordView,
+  },
+  {
+    path: paths.reset_password,
+    component: ResetPasswordView,
   },
 ]
