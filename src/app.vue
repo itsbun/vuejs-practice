@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import { AuthLayout } from '@/layouts'
 </script>
 
 <template>
-  <RouterView />
+  <AuthLayout>
+    <RouterView />
+  </AuthLayout>
 </template>
