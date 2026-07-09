@@ -2,16 +2,18 @@
 interface InputComponentProps {
   type?: 'text' | 'password' | 'email'
   label?: string
-  value?: string
   placeholder?: string
+  error?: string
 }
 
 const props = withDefaults(defineProps<InputComponentProps>(), {
   type: 'text',
   label: '',
-  value: '',
   placeholder: '',
+  error: '',
 })
+
+const model = defineModel<string>()
 </script>
 
 <template>
@@ -24,12 +26,19 @@ const props = withDefaults(defineProps<InputComponentProps>(), {
     >
 
     <input
-      class="border-border focus:ring-primary rounded-xl border px-3.5 py-2.5 outline-none focus:ring-1"
+      :class="[
+        'border-border focus:ring-primary rounded-xl border px-3.5 py-2.5 outline-none focus:ring-1',
+        props.error ? 'border-red-500 focus:ring-red-500' : 'border-border focus:ring-primary',
+      ]"
+      v-model="model"
       :id="props.label"
       :type="props.type"
       :placeholder="props.placeholder"
-      :value="props.value"
       autocomplete="on"
     />
+
+    <p v-if="props.error" class="text-xs text-red-500 italic">
+      {{ props.error }}
+    </p>
   </div>
 </template>
