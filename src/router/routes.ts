@@ -5,6 +5,7 @@ import {
   RegisterView,
   ResetPasswordView,
   SuccessView,
+  VeriyEmailView,
 } from '@/views'
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -28,5 +29,9 @@ export const routes: RouteRecordRaw[] = [
   {
     path: paths.success,
     component: SuccessView,
+  },
+  {
+    path: paths.verify_email,
+    component: VeriyEmailView,
   },
 ]
