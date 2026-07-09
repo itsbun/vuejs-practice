@@ -1,7 +1,30 @@
 <script setup lang="ts">
-import { paths } from '@/constants'
+import { paths, required, minLength } from '@/constants'
 import { BaseButton, BaseLink, OtpInput } from '@/components'
 import { arrowLeftIcon, emailIcon } from '@/assets'
+import { useFormValidation } from '@/composables'
+import { ref } from 'vue'
+
+const form = ref({
+  otp: '',
+})
+
+const rules = {
+  otp: [required('OTP Code'), minLength(6, 'OTP Code')],
+}
+
+const { errors, validateAll, resetErrors } = useFormValidation(form, rules)
+
+const onSubmit = () => {
+  if (validateAll()) {
+    Object.assign(form.value, {
+      otp: '',
+    })
+    resetErrors()
+  } else {
+    console.log(errors.value)
+  }
+}
 </script>
 
 <template>
@@ -19,9 +42,10 @@ import { arrowLeftIcon, emailIcon } from '@/assets'
       </div>
     </div>
 
-    <form>
+    <form @submit.prevent="onSubmit">
       <div class="mb-5 flex flex-col gap-5">
-        <OtpInput id="otp-email" />
+        <OtpInput id="otp-email" v-model="form.otp" />
+        <p v-if="errors.otp" class="text-xs text-red-500 italic">{{ errors.otp }}</p>
       </div>
 
       <BaseButton type="submit" class="mb-5 w-full">Verify email</BaseButton>

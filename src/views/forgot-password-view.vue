@@ -1,7 +1,30 @@
 <script setup lang="ts">
-import { paths } from '@/constants'
+import { paths, required, email } from '@/constants'
 import { BaseButton, BaseInput, BaseLink } from '@/components'
 import { arrowLeftIcon, emailIcon } from '@/assets'
+import { useFormValidation } from '@/composables'
+import { ref } from 'vue'
+
+const form = ref({
+  email: '',
+})
+
+const rules = {
+  email: [required('Email'), email()],
+}
+
+const { errors, validateAll, resetErrors } = useFormValidation(form, rules)
+
+const onSubmit = () => {
+  if (validateAll()) {
+    Object.assign(form.value, {
+      email: '',
+    })
+    resetErrors()
+  } else {
+    console.log(errors.value)
+  }
+}
 </script>
 
 <template>
@@ -19,9 +42,15 @@ import { arrowLeftIcon, emailIcon } from '@/assets'
       </div>
     </div>
 
-    <form>
+    <form @submit.prevent="onSubmit">
       <div class="mb-5 flex flex-col gap-5">
-        <BaseInput type="email" label="Email" placeholder="you@company.com" />
+        <BaseInput
+          v-model="form.email"
+          type="email"
+          label="Email"
+          placeholder="you@company.com"
+          :error="errors.email"
+        />
       </div>
 
       <BaseButton type="submit" class="mb-5 w-full">Send reset link</BaseButton>

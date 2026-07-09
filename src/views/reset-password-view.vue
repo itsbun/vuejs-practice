@@ -1,7 +1,36 @@
 <script setup lang="ts">
-import { paths } from '@/constants'
+import { paths, required, password, match } from '@/constants'
 import { BaseButton, BaseInput, BaseLink } from '@/components'
 import { arrowLeftIcon, lockIcon } from '@/assets'
+import { useFormValidation } from '@/composables'
+import { ref } from 'vue'
+
+const form = ref({
+  password: '',
+  confirmPassword: '',
+})
+
+const rules = {
+  password: [required('Password'), password()],
+  confirmPassword: [
+    required('Confirm Password'),
+    match(() => form.value.password, 'Confirm Password'),
+  ],
+}
+
+const { errors, validateAll, resetErrors } = useFormValidation(form, rules)
+
+const onSubmit = () => {
+  if (validateAll()) {
+    Object.assign(form.value, {
+      password: '',
+      confirmPassword: '',
+    })
+    resetErrors()
+  } else {
+    console.log(errors.value)
+  }
+}
 </script>
 
 <template>
@@ -19,13 +48,21 @@ import { arrowLeftIcon, lockIcon } from '@/assets'
       </div>
     </div>
 
-    <form>
+    <form @submit.prevent="onSubmit">
       <div class="mb-5 flex flex-col gap-5">
-        <BaseInput type="password" label="New password" placeholder="Create a new password" />
         <BaseInput
+          v-model="form.password"
+          type="password"
+          label="New password"
+          placeholder="Create a new password"
+          :error="errors.password"
+        />
+        <BaseInput
+          v-model="form.confirmPassword"
           type="password"
           label="Confirm new password"
           placeholder="Re-enter your new password"
+          :error="errors.confirmPassword"
         />
       </div>
 

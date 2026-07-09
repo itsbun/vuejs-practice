@@ -1,6 +1,32 @@
 <script setup lang="ts">
-import { EXTERNAL_LOGIN_OPTIONS, paths } from '@/constants'
+import { EXTERNAL_LOGIN_OPTIONS, email, password, paths, required } from '@/constants'
 import { BaseButton, BaseInput, BaseLink } from '@/components'
+import { useFormValidation } from '@/composables'
+import { ref } from 'vue'
+
+const form = ref({
+  email: '',
+  password: '',
+})
+
+const rules = {
+  email: [required('Email'), email()],
+  password: [required('Password'), password()],
+}
+
+const { errors, validateAll, resetErrors } = useFormValidation(form, rules)
+
+const onSubmit = () => {
+  if (validateAll()) {
+    Object.assign(form.value, {
+      email: '',
+      password: '',
+    })
+    resetErrors()
+  } else {
+    console.log(errors.value)
+  }
+}
 </script>
 
 <template>
@@ -32,10 +58,22 @@ import { BaseButton, BaseInput, BaseLink } from '@/components'
       </div>
     </div>
 
-    <form>
+    <form @submit.prevent="onSubmit">
       <div class="mb-5 flex flex-col gap-5">
-        <BaseInput type="email" label="Email" placeholder="you@company.com" />
-        <BaseInput type="password" label="Password" placeholder="Enter your password" />
+        <BaseInput
+          v-model="form.email"
+          type="email"
+          label="Email"
+          placeholder="you@company.com"
+          :error="errors.email"
+        />
+        <BaseInput
+          v-model="form.password"
+          type="password"
+          label="Password"
+          placeholder="Enter your password"
+          :error="errors.password"
+        />
       </div>
 
       <div class="flex justify-between pb-5 text-sm/5 font-semibold">

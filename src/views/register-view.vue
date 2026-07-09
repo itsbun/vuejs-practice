@@ -1,6 +1,48 @@
 <script setup lang="ts">
 import { BaseButton, BaseInput, BaseLink } from '@/components'
-import { EXTERNAL_LOGIN_OPTIONS, paths } from '@/constants'
+import { useFormValidation } from '@/composables/useFormValidation'
+import {
+  email,
+  EXTERNAL_LOGIN_OPTIONS,
+  match,
+  minLength,
+  password,
+  paths,
+  required,
+} from '@/constants'
+import { ref } from 'vue'
+
+const form = ref({
+  fullName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+})
+
+const rules = {
+  fullName: [required('Full name'), minLength(3, 'Full name')],
+  email: [required('Email'), email()],
+  password: [required('Password'), password()],
+  confirmPassword: [
+    required('Confirm Password'),
+    match(() => form.value.password, 'Confirm Password'),
+  ],
+}
+
+const { errors, validateAll, resetErrors } = useFormValidation(form, rules)
+
+const onSubmit = () => {
+  if (validateAll()) {
+    Object.assign(form.value, {
+      email: '',
+      password: '',
+      confirmPassword: '',
+    })
+    resetErrors()
+  } else {
+    console.log(errors.value)
+  }
+}
 </script>
 
 <template>
@@ -32,17 +74,41 @@ import { EXTERNAL_LOGIN_OPTIONS, paths } from '@/constants'
       </div>
     </div>
 
-    <form>
+    <form @submit.prevent="onSubmit">
       <div class="mb-5 flex flex-col gap-5">
-        <BaseInput type="text" label="Full name" placeholder="Avery Johnson" />
-        <BaseInput type="email" label="Email" placeholder="you@company.com" />
-        <BaseInput type="password" label="Password" placeholder="Enter your password" />
-        <BaseInput type="password" label="Confirm Password" placeholder="Re-enter your password" />
+        <BaseInput
+          v-model="form.fullName"
+          type="text"
+          label="Full name"
+          placeholder="Avery Johnson"
+          :error="errors.fullName"
+        />
+        <BaseInput
+          v-model="form.email"
+          type="email"
+          label="Email"
+          placeholder="you@company.com"
+          :error="errors.email"
+        />
+        <BaseInput
+          v-model="form.password"
+          type="password"
+          label="Password"
+          placeholder="Enter your password"
+          :error="errors.password"
+        />
+        <BaseInput
+          v-model="form.confirmPassword"
+          type="password"
+          label="Confirm Password"
+          placeholder="Re-enter your password"
+          :error="errors.confirmPassword"
+        />
       </div>
 
       <div class="flex justify-between pb-5 text-sm/5 font-semibold">
         <div class="flex items-center gap-2">
-          <input type="checkbox" class="hover:cursor-pointer" />
+          <input type="checkbox" class="hover:cursor-pointer" required />
           <span class="text-text-muted">
             I agree to the
             <BaseLink :to="'/'" :fontSize="'md'">Term of Service</BaseLink>
