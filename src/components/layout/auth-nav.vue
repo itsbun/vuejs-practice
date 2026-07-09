@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { authNavigationItems } from '@/constants'
 import { BaseLink } from '../ui'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const isActive = (href: string) => route.path === href
 </script>
 
 <template>
@@ -11,7 +16,12 @@ import { BaseLink } from '../ui'
       <template v-for="(item, index) in authNavigationItems" :key="item.href">
         <BaseLink
           :to="item.href"
-          class="hover:bg-primary text-text-muted flex items-center rounded-2xl px-3 py-1 font-semibold hover:text-white"
+          :class="[
+            'flex items-center rounded-2xl px-3 py-1 font-semibold transition-all duration-600 ease-in-out',
+            isActive(item.href)
+              ? 'bg-primary scale-105 text-white shadow-sm'
+              : 'text-text-muted hover:bg-primary hover:scale-105 hover:text-white',
+          ]"
         >
           <span>{{ item.order }}</span>
 

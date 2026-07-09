@@ -19,7 +19,7 @@ import { EXTERNAL_LOGIN_OPTIONS, paths } from '@/constants'
             :variant="'secondary'"
             class="border-border xs:w-full flex w-42.5 gap-2 border"
           >
-            <img :src="option.icon" alt="{{ option.name }} Icon" />
+            <img :src="option.icon" :alt="`${option.name} Icon`" />
             {{ option.name }}
           </BaseButton>
         </div>
