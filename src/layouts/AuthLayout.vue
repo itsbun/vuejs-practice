@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { checkboxIcon, logoIcon } from '@/assets'
-import { AuthNav } from '@/components'
+import { TheAuthNav } from '@/components'
 
 const termConditions = [
   'Encrypted credentials',
@@ -11,7 +11,7 @@ const termConditions = [
 
 <template>
   <main class="bg-page-background min-h-screen">
-    <AuthNav />
+    <TheAuthNav />
 
     <section on class="xs:py-4 flex w-full justify-center sm:px-5 sm:py-8 lg:px-31">
       <div class="grid max-w-4xl rounded-2xl sm:grid-cols-10">

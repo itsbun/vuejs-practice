@@ -1,2 +1,2 @@
-export * from './layout'
+export * from './navigations'
 export * from './ui'
