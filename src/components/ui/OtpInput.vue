@@ -4,11 +4,13 @@ import { ref, watch } from 'vue'
 interface OtpInputProps {
   countOfNumbers?: number
   id: string
+  error?: string | boolean
 }
 
 const props = withDefaults(defineProps<OtpInputProps>(), {
   countOfNumbers: 6,
   id: 'otp-input',
+  error: false,
 })
 
 const inputRefs = ref<HTMLInputElement[]>([])
@@ -93,7 +95,10 @@ const onKeyDown = (event: KeyboardEvent, index: number) => {
       inputmode="numeric"
       autocomplete="one-time-code"
       maxlength="1"
-      class="focus:border-primary h-9 w-9 gap-1 rounded-lg border border-gray-300 text-center text-xs outline-none sm:h-12 sm:w-12 sm:gap-2 sm:text-lg"
+      :class="[
+        'focus:border-primary h-9 w-9 gap-1 rounded-lg border text-center text-xs outline-none sm:h-12 sm:w-12 sm:gap-2 sm:text-lg',
+        props.error ? 'border-red-500' : 'border-gray-300',
+      ]"
       @input="onInput($event, index)"
       @keydown="onKeyDown($event, index)"
     />

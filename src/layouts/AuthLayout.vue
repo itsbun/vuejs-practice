@@ -46,7 +46,11 @@ const termConditions = [
           </div>
         </div>
 
-        <slot />
+        <div
+          class="xs:rounded-xl xs:w-[95%] mx-auto flex flex-col justify-center bg-white p-4 py-10 sm:col-span-6 sm:w-full sm:rounded-l-none sm:rounded-r-2xl md:px-8 lg:px-12 xl:px-20"
+        >
+          <slot />
+        </div>
       </div>
     </section>
   </main>
