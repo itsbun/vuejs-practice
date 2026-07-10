@@ -39,7 +39,7 @@ const termConditions = [
           <div class="flex flex-col justify-end gap-3">
             <div v-for="(term, item) in termConditions" :key="item">
               <p class="flex gap-2 text-sm font-normal text-white opacity-80">
-                <img :src="checkboxIcon" alt="" />
+                <img :src="checkboxIcon" alt="checkbox" />
                 {{ term }}
               </p>
             </div>

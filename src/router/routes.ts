@@ -19,19 +19,19 @@ export const routes: RouteRecordRaw[] = [
     component: RegisterView,
   },
   {
-    path: paths.forgot_password,
+    path: paths.forgotPassword,
     component: ForgotPasswordView,
   },
   {
-    path: paths.reset_password,
+    path: paths.resetPassword,
     component: ResetPasswordView,
+  },
+  {
+    path: paths.verifyEmail,
+    component: VeriyEmailView,
   },
   {
     path: paths.success,
     component: SuccessView,
-  },
-  {
-    path: paths.verify_email,
-    component: VeriyEmailView,
   },
 ]

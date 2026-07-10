@@ -5,6 +5,7 @@ interface OtpInputProps {
   countOfNumbers?: number
   id: string
 }
+
 const props = withDefaults(defineProps<OtpInputProps>(), {
   countOfNumbers: 6,
   id: 'otp-input',
@@ -83,8 +84,8 @@ const onKeyDown = (event: KeyboardEvent, index: number) => {
 <template>
   <div v-if="countOfNumbers > 0" class="flex justify-between gap-2">
     <input
-      :id="`${props.id}-${index}`"
       v-for="(_, index) in otp"
+      :id="`${props.id}-${index}`"
       :key="index"
       :ref="(el) => setInputRef(el as HTMLInputElement, index)"
       :value="otp[index]"

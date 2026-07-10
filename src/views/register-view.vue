@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { BaseButton, BaseInput, BaseLink } from '@/components'
-import { useFormValidation } from '@/composables/useFormValidation'
+import { useFormValidation } from '@/composables'
 import {
   email,
   EXTERNAL_LOGIN_OPTIONS,
@@ -51,6 +51,7 @@ const onSubmit = () => {
   >
     <div>
       <h2 class="text-2xl/8 font-bold text-black">Create your account</h2>
+
       <p class="text-text-muted mb-5 pt-1 text-sm leading-[22.75px] font-normal">
         Start your 14-day free trial. No card required.
       </p>
@@ -62,6 +63,7 @@ const onSubmit = () => {
             class="border-border xs:w-full flex w-42.5 gap-2 border"
           >
             <img :src="option.icon" :alt="`${option.name} Icon`" />
+
             {{ option.name }}
           </BaseButton>
         </div>
@@ -109,6 +111,7 @@ const onSubmit = () => {
       <div class="flex justify-between pb-5 text-sm/5 font-semibold">
         <div class="flex items-center gap-2">
           <input type="checkbox" class="hover:cursor-pointer" required />
+
           <span class="text-text-muted">
             I agree to the
             <BaseLink :to="'/'" :fontSize="'md'">Term of Service</BaseLink>

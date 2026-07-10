@@ -35,6 +35,7 @@ const onSubmit = () => {
   >
     <div>
       <h2 class="text-2xl/8 font-bold text-black">Welcome back</h2>
+
       <p class="text-text-muted mb-5 pt-1 text-sm/5 font-normal">
         Sign in to continue to your workspace.
       </p>
@@ -46,6 +47,7 @@ const onSubmit = () => {
             class="border-border xs:w-full flex w-42.5 gap-2 border"
           >
             <img :src="option.icon" :alt="`${option.name} Icon`" />
+
             Continue with {{ option.name }}
           </BaseButton>
         </div>
@@ -79,10 +81,11 @@ const onSubmit = () => {
       <div class="flex justify-between pb-5 text-sm/5 font-semibold">
         <div class="flex items-center gap-2">
           <input type="checkbox" class="hover:cursor-pointer" />
+
           <span class="text-text-muted">Remember me</span>
         </div>
 
-        <BaseLink :to="paths.forgot_password"> Forgot Password? </BaseLink>
+        <BaseLink :to="paths.forgotPassword"> Forgot Password? </BaseLink>
       </div>
 
       <BaseButton type="submit" class="mb-5 w-full">Sign in</BaseButton>

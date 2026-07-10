@@ -36,6 +36,7 @@ const onSubmit = () => {
 
       <div>
         <h2 class="text-2xl/8 font-bold text-black">Verify your email</h2>
+
         <p class="text-text-muted mb-5 pt-1 text-sm leading-[22.75px] font-normal">
           We sent a 6-digit code to your email. Enter it below to confirm your address.
         </p>
@@ -54,6 +55,7 @@ const onSubmit = () => {
     <div class="flex flex-col items-center justify-center gap-1">
       <div class="flex items-center gap-2">
         <p class="text-text-muted text-sm/5 font-normal">Didn't get it?</p>
+
         <BaseLink :to="'/'" fontSize="md">Resend code</BaseLink>
       </div>
 

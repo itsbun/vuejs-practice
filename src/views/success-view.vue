@@ -16,6 +16,7 @@ import { successIcon } from '@/assets'
 
       <div>
         <h2 class="text-2xl/8 font-bold text-black">You're all set!</h2>
+
         <p class="text-text-muted mb-5 pt-1 text-sm leading-[22.75px] font-normal">
           Your email has been verified and your account is ready. Welcome to Northwind — let's get
           you to your workspace.

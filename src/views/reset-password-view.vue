@@ -42,6 +42,7 @@ const onSubmit = () => {
 
       <div>
         <h2 class="text-2xl/8 font-bold text-black">Set a new password</h2>
+        
         <p class="text-text-muted mb-5 pt-1 text-sm leading-[22.75px] font-normal">
           Choose a strong password you haven't used before. It must be at least 8 characters.
         </p>

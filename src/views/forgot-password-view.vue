@@ -36,6 +36,7 @@ const onSubmit = () => {
 
       <div>
         <h2 class="text-2xl/8 font-bold text-black">Forgot password?</h2>
+
         <p class="text-text-muted mb-5 pt-1 text-sm leading-[22.75px] font-normal">
           No problem. Enter the email tied to your account and we'll send you a reset link.
         </p>
