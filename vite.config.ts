@@ -11,13 +11,20 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
-      '@composables': fileURLToPath(new URL('./src/composables', import.meta.url)),
-      '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
-      '@constants': fileURLToPath(new URL('./src/constants', import.meta.url)),
-      '@layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
+
+      '@modules': fileURLToPath(new URL('./src/modules', import.meta.url)),
+
       '@router': fileURLToPath(new URL('./src/router', import.meta.url)),
-      '@views': fileURLToPath(new URL('./src/views', import.meta.url)),
+
+      '@shared': fileURLToPath(new URL('./src/shared', import.meta.url)),
+
+      '@assets': fileURLToPath(new URL('./src/shared/assets', import.meta.url)),
+
+      '@composables': fileURLToPath(new URL('./src/shared/composables', import.meta.url)),
+
+      '@constants': fileURLToPath(new URL('./src/shared/constants', import.meta.url)),
+
+      '@ui': fileURLToPath(new URL('./src/shared/ui', import.meta.url)),
     },
   },
 })

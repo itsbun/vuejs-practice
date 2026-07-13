@@ -9,20 +9,27 @@
     // Path mapping for cleaner imports.
     "paths": {
       "@/*": ["./src/*"],
-      "@assets": ["./src/assets/svg/index.ts"],
-      "@assets/*": ["./src/assets/*"],
-      "composables": ["./src/composables/index.ts"],
-      "composables/*": ["./src/composables/*"],
-      "@components": ["./src/components/index.ts"],
-      "@components/*": ["./src/components/*"],
-      "@constants/": ["./src/constants/index.ts"],
-      "@constants/*": ["./src/constants/*"],
-      "@layouts": ["./src/layouts/index.ts"],
-      "@layouts/*": ["./src/layouts/*"],
+
+      "@modules": ["./src/modules/index.ts"],
+      "@modules/*": ["./src/modules/*"],
+
       "@router": ["./src/router/index.ts"],
       "@router/*": ["./src/router/*"],
-      "@views": ["./src/views/index.ts"],
-      "@views/*": ["./src/views/*"]
+
+      "@shared": ["./src/shared/index.ts"],
+      "@shared/*": ["./src/shared/*"],
+
+      "@assets": ["./src/shared/assets/index.ts"],
+      "@assets/*": ["./src/shared/assets/*"],
+
+      "composables": ["./src/shared/composables/index.ts"],
+      "composables/*": ["./src/shared/composables/*"],
+
+      "@constants/": ["./src/shared/constants/index.ts"],
+      "@constants/*": ["./src/shared/constants/*"],
+
+      "@ui": ["./src/shared/ui/index.ts"],
+      "@ui/*": ["./src/shared/ui/*"]
     },
 
     // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.

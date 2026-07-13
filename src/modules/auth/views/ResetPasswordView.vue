@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { paths, required, password, match } from '@/constants'
-import { AuthTitle, BaseButton, BaseInput, BaseLink } from '@/components'
-import { arrowLeftIcon, lockIcon } from '@/assets'
-import { useFormValidation } from '@/composables/useFormValidation'
+import { paths, required, password, match } from '@/shared/constants'
+import { BaseButton, BaseInput, BaseLink } from '@/shared/ui'
+import { arrowLeftIcon, lockIcon } from '@/shared/assets'
+import { useFormValidation } from '@/shared/composables'
 import { ref } from 'vue'
+import { AuthTitle } from '../components'
 
 const form = ref({
   password: '',

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { AuthTitle, BaseButton, BaseInput, BaseLink, SocialLoginOptions } from '@/components'
-import { useFormValidation } from '@/composables'
-import { email, match, minLength, password, paths, required } from '@/constants'
+import { BaseButton, BaseInput, BaseLink } from '@/shared/ui'
+import { useFormValidation } from '@/shared/composables'
+import { email, match, minLength, password, paths, required } from '@/shared/constants'
 import { ref } from 'vue'
+import { AuthTitle, SocialLoginOptions } from '../components'
 
 const form = ref({
   fullName: '',

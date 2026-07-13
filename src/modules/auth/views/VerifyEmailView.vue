@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { paths, required, minLength } from '@/constants'
-import { AuthTitle, BaseButton, BaseLink, OtpInput } from '@/components'
-import { arrowLeftIcon, emailIcon } from '@/assets'
-import { useFormValidation } from '@/composables'
+import { paths, required, minLength } from '@/shared/constants'
+import { BaseButton, BaseLink, OtpInput } from '@/shared/ui'
+import { arrowLeftIcon, emailIcon } from '@/shared/assets'
+import { useFormValidation } from '@/shared/composables'
 import { ref } from 'vue'
+import { AuthTitle } from '../components'
 
 const form = ref({
   otp: '',

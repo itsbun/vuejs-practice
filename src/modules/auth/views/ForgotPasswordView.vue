@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { paths, required, email } from '@/constants'
-import { AuthTitle, BaseButton, BaseInput, BaseLink } from '@/components'
-import { arrowLeftIcon, emailIcon } from '@/assets'
-import { useFormValidation } from '@/composables'
+import { arrowLeftIcon, emailIcon } from '@/shared/assets'
+import { useFormValidation } from '@/shared/composables'
+import { email, paths, required } from '@/shared/constants'
 import { ref } from 'vue'
+import { AuthTitle } from '../components'
+import { BaseButton, BaseInput, BaseLink } from '@/shared/ui'
 
 const form = ref({
   email: '',

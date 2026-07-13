@@ -1,4 +1,4 @@
-import { githubIcon, googleIcon } from '@/assets'
+import { githubIcon, googleIcon } from '@/shared/assets'
 
 export const EXTERNAL_LOGIN_OPTIONS = [
   {

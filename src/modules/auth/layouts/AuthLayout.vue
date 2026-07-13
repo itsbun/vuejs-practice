@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { checkboxIcon, logoIcon } from '@/assets'
-import { TheAuthNav } from '@/components'
+import { checkboxIcon, logoIcon } from '@/shared/assets'
+import { TheAuthNav } from '../components'
 
 const termConditions = [
   'Encrypted credentials',

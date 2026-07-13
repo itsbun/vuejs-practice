@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { AUTH_NAVIGATION_ITEMS } from '@/constants'
-import { BaseLink } from '../ui'
+import { AUTH_NAVIGATION_ITEMS } from '@/shared/constants'
+import { BaseLink } from '@/shared/ui'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()

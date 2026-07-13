@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { AuthTitle, BaseButton } from '@/components'
-import { successIcon } from '@/assets'
+import { BaseButton } from '@/shared/ui'
+import { successIcon } from '@/shared/assets'
+import { AuthTitle } from '../components';
 </script>
 
 <template>

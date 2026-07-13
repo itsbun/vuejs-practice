@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { EXTERNAL_LOGIN_OPTIONS } from '@/constants'
-import { BaseButton } from '../ui'
+import { EXTERNAL_LOGIN_OPTIONS } from '@/shared/constants'
+import { BaseButton } from '@/shared/ui'
 
 interface SocialLoginOptionsProps {
   buttonPrefix?: string

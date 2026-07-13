@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { nextTick, ref, watch } from 'vue'
-import type { ValidationRule } from '@/constants'
+import type { ValidationRule } from '@/shared/constants'
 
 export const useFormValidation = <T extends Record<string, unknown>>(
   form: Ref<T>,
