@@ -1,14 +1,3 @@
-<script setup lang="ts">
-import { checkboxIcon, logoIcon } from '@/shared/assets'
-import { TheAuthNav } from '../components'
-
-const termConditions = [
-  'Encrypted credentials',
-  'Email verification built-in',
-  'Password recovery flow',
-]
-</script>
-
 <template>
   <main class="bg-page-background min-h-screen">
     <TheAuthNav />
@@ -20,6 +9,7 @@ const termConditions = [
         >
           <div class="flex items-start gap-3">
             <img :src="logoIcon" alt="logo" />
+
             <p class="text-lg/7 font-semibold tracking-[-0.45px] text-white">Northwind</p>
           </div>
 
@@ -31,6 +21,7 @@ const termConditions = [
 
           <div class="flex flex-col items-center justify-center text-white">
             <h1 class="text-3xl/[37.5px] font-bold">One account for everything your team ships.</h1>
+
             <p class="text-sm/[22.75px] font-normal opacity-70">
               Secure sign-in, instant onboarding, and a verified inbox - all in a few clicks.
             </p>
@@ -40,6 +31,7 @@ const termConditions = [
             <div v-for="(term, item) in termConditions" :key="item">
               <p class="flex gap-2 text-sm font-normal text-white opacity-80">
                 <img :src="checkboxIcon" alt="checkbox" />
+
                 {{ term }}
               </p>
             </div>
@@ -55,3 +47,14 @@ const termConditions = [
     </section>
   </main>
 </template>
+
+<script setup lang="ts">
+import { checkboxIcon, logoIcon } from '@/shared/assets'
+import { TheAuthNav } from '../components'
+
+const termConditions = [
+  'Encrypted credentials',
+  'Email verification built-in',
+  'Password recovery flow',
+]
+</script>

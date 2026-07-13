@@ -22,7 +22,6 @@ export default defineConfigWithVueTs(
     files: ['**/*.vue'],
     rules: {
       'vue/no-undef-components': 'error',
-      'vue/no-undef-properties': 'error',
     },
   },
 

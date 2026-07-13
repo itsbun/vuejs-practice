@@ -1,3 +1,25 @@
+<template>
+  <div v-if="countOfNumbers > 0" class="flex justify-between gap-2">
+    <input
+      v-for="(_, index) in otp"
+      :id="`${props.id}-${index}`"
+      :key="index"
+      :ref="(el) => setInputRef(el as HTMLInputElement, index)"
+      :value="otp[index]"
+      type="text"
+      inputmode="numeric"
+      autocomplete="one-time-code"
+      maxlength="1"
+      :class="[
+        'focus:border-primary h-9 w-9 gap-1 rounded-lg border text-center text-xs outline-none sm:h-12 sm:w-12 sm:gap-2 sm:text-lg',
+        props.error ? 'border-red-500' : 'border-gray-300',
+      ]"
+      @input="onInput($event, index)"
+      @keydown="onKeyDown($event, index)"
+    />
+  </div>
+</template>
+
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 
@@ -82,25 +104,3 @@ const onKeyDown = (event: KeyboardEvent, index: number) => {
   }
 }
 </script>
-
-<template>
-  <div v-if="countOfNumbers > 0" class="flex justify-between gap-2">
-    <input
-      v-for="(_, index) in otp"
-      :id="`${props.id}-${index}`"
-      :key="index"
-      :ref="(el) => setInputRef(el as HTMLInputElement, index)"
-      :value="otp[index]"
-      type="text"
-      inputmode="numeric"
-      autocomplete="one-time-code"
-      maxlength="1"
-      :class="[
-        'focus:border-primary h-9 w-9 gap-1 rounded-lg border text-center text-xs outline-none sm:h-12 sm:w-12 sm:gap-2 sm:text-lg',
-        props.error ? 'border-red-500' : 'border-gray-300',
-      ]"
-      @input="onInput($event, index)"
-      @keydown="onKeyDown($event, index)"
-    />
-  </div>
-</template>

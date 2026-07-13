@@ -1,29 +1,11 @@
-<script setup lang="ts">
-interface InputComponentProps {
-  type?: 'text' | 'password' | 'email'
-  label?: string
-  placeholder?: string
-  error?: string
-}
-
-const props = withDefaults(defineProps<InputComponentProps>(), {
-  type: 'text',
-  label: '',
-  placeholder: '',
-  error: '',
-})
-
-const model = defineModel<string>()
-</script>
-
 <template>
   <div class="flex flex-col gap-1.5">
     <label
       v-if="props.label"
       :for="props.label"
       class="text-sm/5 font-semibold tracking-normal text-black"
-      >{{ props.label }}</label
-    >
+      >{{ props.label }}
+    </label>
 
     <input
       :id="props.label"
@@ -42,3 +24,21 @@ const model = defineModel<string>()
     </p>
   </div>
 </template>
+
+<script setup lang="ts">
+interface InputComponentProps {
+  type?: 'text' | 'password' | 'email'
+  label?: string
+  placeholder?: string
+  error?: string
+}
+
+const props = withDefaults(defineProps<InputComponentProps>(), {
+  type: 'text',
+  label: '',
+  placeholder: '',
+  error: '',
+})
+
+const model = defineModel<string>()
+</script>

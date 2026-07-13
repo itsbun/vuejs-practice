@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import { BaseButton } from '@/shared/ui'
-import { successIcon } from '@/shared/assets'
-import { AuthTitle } from '../components';
-</script>
-
 <template>
   <AuthTitle
     title="You're all set!"
@@ -20,3 +14,9 @@ import { AuthTitle } from '../components';
     Redirecting you automatically in 1 second…
   </p>
 </template>
+
+<script setup lang="ts">
+import { BaseButton } from '@/shared/ui'
+import { successIcon } from '@/shared/assets'
+import { AuthTitle } from '../components'
+</script>

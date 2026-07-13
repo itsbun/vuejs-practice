@@ -1,3 +1,18 @@
+<template>
+  <button :type="type" :disabled="disabled || loading" :class="buttonClasses">
+    <span v-if="$slots.icon" class="mr-2 inline-flex">
+      <slot name="icon" />
+    </span>
+
+    <span
+      v-if="loading"
+      class="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"
+    />
+
+    <slot />
+  </button>
+</template>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -36,18 +51,3 @@ const buttonClasses = computed(() => [
   (props.disabled || props.loading) && 'cursor-not-allowed opacity-50',
 ])
 </script>
-
-<template>
-  <button :type="type" :disabled="disabled || loading" :class="buttonClasses">
-    <span v-if="$slots.icon" class="mr-2 inline-flex">
-      <slot name="icon" />
-    </span>
-
-    <span
-      v-if="loading"
-      class="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"
-    />
-
-    <slot />
-  </button>
-</template>

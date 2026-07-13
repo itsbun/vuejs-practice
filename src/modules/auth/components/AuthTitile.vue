@@ -1,14 +1,3 @@
-<script setup lang="ts">
-interface AuthTitleProps {
-  title: string
-  description: string
-  icon?: string
-  center?: boolean
-}
-
-defineProps<AuthTitleProps>()
-</script>
-
 <template>
   <div
     :class="[
@@ -30,3 +19,14 @@ defineProps<AuthTitleProps>()
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+interface AuthTitleProps {
+  title: string
+  description: string
+  icon?: string
+  center?: boolean
+}
+
+defineProps<AuthTitleProps>()
+</script>
